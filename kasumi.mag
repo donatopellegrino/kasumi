@@ -12,7 +12,7 @@ load "fi.mag";
 load "Encrypt.mag";
 
 
-P := "1630403648CF005F";
+/*P := "1630403648CF005F";
 
 K := "2F17EC3A920E3F075CD4F36F522D3A5B";
 
@@ -25,6 +25,11 @@ Cresult := Encrypt(P, KL, KO, KI);
 "expect";
 BinToHex(Cresult);
 "to be";
-C;
+C;*/
+
+Kasumi := function(P,K)
+    KL, KO, KI := KeySchedule(K);
+    return BinToHex(Encrypt(P, KL, KO, KI));
+end function;
 
 //Presult := Decrypt(C, KL, KO, KI);

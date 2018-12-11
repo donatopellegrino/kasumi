@@ -1,0 +1,22 @@
+Decrypt:=function(C,K)
+
+ C := HexToBin(C);
+    L := [[],[],[],[],[],[],[],[C[i]:i in [1..32]]];
+    R := [[],[],[],[],[],[],[],[C[i]:i in [33..64]]];
+
+    KL,KO,KI:=KeySchedule(K);
+
+    for i in [0..6] do
+        L[7-i]:=R[8-i];
+        fiRet := fi(L[7-i], KL, KO, KI, 8-i);
+        R[7-i] := SeqXor(L[8-i],fiRet);
+    end for;
+
+    L[9]:=R[1];
+    fiRet:= fi(L[9], KL, KO, KI,1);
+    R[9] := SeqXor(L[1],fiRet);
+ 
+
+    return BinToHex(L[9] cat R[9]);
+
+end function;

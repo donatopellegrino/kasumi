@@ -10,6 +10,7 @@ load "FL.mag";
 load "FO.mag";
 load "fi.mag";
 load "Encrypt.mag";
+load "Decrypt.mag";
 
 
 /*P := "1630403648CF005F";

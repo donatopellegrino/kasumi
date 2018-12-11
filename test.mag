@@ -10,11 +10,12 @@ K:=["2F17EC3A920E3F075CD4F36F522D3A5B","E71E6D30D4813FC9C33893E719903BE4","5BBDD
 C:=["39DEFDB13FFB9BB3","0B9A482139EF8A13","FD6241B4B78DF09F","CEE04DB7BA03E966","1E2366EC504238DA","7A47C3416954998A","D2AB76BE948E8173","0451E0AB896248EF","592A281F863C8AFB","B03FCE98D8D4EADF"];
 
 
-
+time
 for i in [1..10] do 
 	if Kasumi(P[i],K[i]) ne C[i] then 
 		error "Error in Encryption\n";
-	else
-		"mammt";
+	end if;
+	if Decrypt(C[i],K[i]) ne P[i] then 
+		error "Error in Decryption\n";
 	end if;
 end for;

@@ -1,0 +1,7 @@
+fi:=function(I, KL, KO, KI, i)
+    if IsEven(i) then
+        return FL(FO(I, [KO[1,i], KO[2,i], KO[3,i]], [KI[1,i], KI[2,i], KI[3,i]]), [KL[1,i], KL[2,i]]);
+    else
+        return FO(FL(I, [KL[1,i], KL[2,i]]), [KO[1,i], KO[2,i], KO[3,i]], [KI[1,i], KI[2,i], KI[3,i]]);
+    end if;
+end function;

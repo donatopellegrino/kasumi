@@ -1,0 +1,11 @@
+SeqXor:=function(A, B)
+    return [BitwiseXor(A[i], B[i]):i in [1..#A]];
+end function;
+
+SeqAnd:=function(A, B)
+    return [BitwiseAnd(A[i], B[i]):i in [1..#A]];
+end function;
+
+SeqOr:=function(A, B)
+    return [BitwiseOr(A[i], B[i]):i in [1..#A]];
+end function;

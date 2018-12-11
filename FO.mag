@@ -1,0 +1,11 @@
+FO:=function(Ibefore, KO, KI)
+
+    L  := [[Ibefore[i]:i in [1..16]], [], [], []];
+    R  := [[Ibefore[i]:i in [17..32]], [], [], []];
+    
+    for i in [2..4] do
+        R[i] := SeqXor(FI(SeqXor(L[i-1], KO[i-1]), KI[i-1]), R[i-1]);
+        L[i] := R[i-1];
+    end for;
+    return L[4] cat R[4];
+end function;

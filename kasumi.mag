@@ -1,0 +1,27 @@
+load "BinaryOps.mag";
+load "Conversions.mag";
+load "KeySchedule.mag";
+load "ZE.mag";
+load "TR.mag";
+load "S9.mag";
+load "S7.mag";
+load "FI.mag";
+load "FL.mag";
+load "FO.mag";
+load "fi.mag";
+load "Encrypt.mag";
+
+
+P := "1630403648CF005F";
+
+K := "2F17EC3A920E3F075CD4F36F522D3A5B";
+
+C := "39DEFDB13FFB9BB3";
+
+KL, KO, KI := KeySchedule(K);
+
+Cresult := Encrypt(P, KL, KO, KI);
+
+BinToHex(Cresult);
+C;
+//Presult := Decrypt(C, KL, KO, KI);

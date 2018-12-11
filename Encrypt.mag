@@ -1,0 +1,15 @@
+Encrypt:=function(I, KL, KO, KI)
+    I := HexToBin(I);
+    L := [[],[],[],[],[],[],[],[]];
+    R := [[],[],[],[],[],[],[],[]];
+    L[1] := [I[i]:i in [1..32]];
+    R[1] := [I[i]:i in [33..64]];
+
+    for i in [2..9] do
+        R[i] := L[i-1];
+        fiRet := fi(L[i-1], KL, KO, KI, i-1);
+        L[i] := SeqXor(R[i],fiRet);
+    end for;
+
+    return L[9] cat R[9];
+end function;

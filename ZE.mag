@@ -1,0 +1,3 @@
+ZE := function(A)
+    return [0,0] cat A;
+end function;

@@ -1,0 +1,28 @@
+KeySchedule:=function(Key)
+    Key := HexToBin(Key);
+    C   := HexToBin("0123456789ABCDEFFEDCBA9876543210");
+
+    K   := Partition(Key, 16);
+    Kp  := Partition(SeqXor(Key,C), 16);
+
+    KL  := [[],[]];
+    KO  := [[],[],[]];
+    KI  := [[],[],[]];
+    
+    for i in [1..8] do 
+        KL[1,i] := Rotate(K[i],-1);
+        KL[2,i] := Kp[(1+i)mod 8 +1];
+
+        KO[1,i] := Rotate(K[(0+i)mod 8 +1],-5);
+        KO[2,i] := Rotate(K[(4+i)mod 8 +1],-8);
+        KO[3,i] := Rotate(K[(5+i)mod 8 +1],-13);
+        
+        KI[1,i] := Kp[(3+i)mod 8 +1];
+        KI[2,i] := Kp[(2+i)mod 8 +1];
+        KI[3,i] := Kp[(6+i)mod 8 +1];
+        
+    end for;
+
+    return KL, KO, KI;
+
+end function;

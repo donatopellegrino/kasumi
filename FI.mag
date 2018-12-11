@@ -1,0 +1,20 @@
+FI := function(I, Ki)
+    L  := [[I[i]:i in [1..9]], [], [], [], []];
+    R  := [[I[i]:i in [10..16]], [], [], [], []];
+
+    KI := [[Ki[i]:i in [1..7]], [I[i]:i in [8..16]]];
+    
+    L[2] := R[1];
+    R[2] := SeqXor(S9(L[1]), ZE(R[1]));
+    
+    L[3] := SeqXor(R[2], KI[2]);
+    R[3] := SeqXor(SeqXor(S7(L[2]), TR(R[2])), KI[1]);
+
+    L[4] := R[3];
+    R[4] := SeqXor(S9(L[3]), ZE(R[3]));
+
+    L[5] := SeqXor(S7(L[4]), TR(R[4]));
+    R[5] := R[4];
+
+    return L[5] cat R[5];
+end function;

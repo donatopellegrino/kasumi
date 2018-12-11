@@ -1,0 +1,11 @@
+FL:=function(Ibefore, KL)
+
+    L  := [Ibefore[i]:i in [1..16]];
+    R  := [Ibefore[i]:i in [17..32]];
+    
+    Rp := SeqXor(R, Rotate(SeqAnd(L, KL[1]), -1));
+    Lp := SeqXor(L, Rotate(SeqAnd(Rp, KL[2]), -1));
+    
+    return Lp cat Rp;
+
+end function;

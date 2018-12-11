@@ -1,0 +1,38 @@
+BinTable := [
+                [0,0,0,0],
+                [0,0,0,1],
+                [0,0,1,0],
+                [0,0,1,1],
+                [0,1,0,0],
+                [0,1,0,1],
+                [0,1,1,0],
+                [0,1,1,1],
+                [1,0,0,0],
+                [1,0,0,1],
+                [1,0,1,0],
+                [1,0,1,1],
+                [1,1,0,0],
+                [1,1,0,1],
+                [1,1,1,0],
+                [1,1,1,1]
+            ];
+            
+
+HexTable := ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+
+HexToBin:=function(S)
+    return &cat [BinTable[Position(HexTable,S[i])] : i in [1..#S]];
+end function;
+
+BinToHex := function(S)
+    return &cat [HexTable[Position(BinTable,[S[i*4+1], S[i*4+2], S[i*4+3], S[i*4+4]])] : i in [0..#S/4-1]];
+end function;
+
+BinToNat := function(N)
+    return Seqint(Reverse(N),2);
+end function;
+
+NatToBin := function(N,s)
+    a := Reverse(Intseq(N,2));
+    return [0 : i in [1..s-#a]] cat a;
+end function;

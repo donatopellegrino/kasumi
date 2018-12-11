@@ -22,6 +22,9 @@ KL, KO, KI := KeySchedule(K);
 
 Cresult := Encrypt(P, KL, KO, KI);
 
+"expect";
 BinToHex(Cresult);
+"to be";
 C;
+
 //Presult := Decrypt(C, KL, KO, KI);

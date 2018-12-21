@@ -15,7 +15,7 @@ for i in [1..10] do
 	if Kasumi(P[i],K[i]) ne C[i] then 
 		error "Error in Encryption\n";
 	end if;
-	if Decrypt(C[i],K[i]) ne P[i] then 
+	if KasumiDecryption(C[i],K[i]) ne P[i] then 
 		error "Error in Decryption\n";
 	end if;
 end for;
